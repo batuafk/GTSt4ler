@@ -1,1 +1,1 @@
-![Untitled](https://github.com/Bt08s/GTSt4ler/assets/68190921/9f3f88de-7992-4e3e-967c-23f6cf5df419)
+![image](https://github.com/Bt08s/GTSt4ler/assets/68190921/1ebe28a0-430a-404a-805f-27c31b8ed506)

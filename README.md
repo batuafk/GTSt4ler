@@ -1,6 +1,6 @@
 Install python and run build.bat
 
-* wait internet connection
+* wait for internet connection
 * copy executable to startup
 * execute command (optional)
 * download file and run (optional)

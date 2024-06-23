@@ -1,5 +1,6 @@
 Install python and run build.bat
 
+* base64 encryption + upx packing
 * wait for internet connection
 * copy executable to startup
 * execute command (optional)

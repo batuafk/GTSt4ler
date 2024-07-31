@@ -1,4 +1,4 @@
-Install python and run Install.bat
+Install python with add to path option and run Install.bat
 
 * base64 encryption + upx packing
 * wait for internet connection

@@ -59,7 +59,7 @@ def get_ip():
         ip_address = data["origin"]
         return ip_address
     except Exception as e:
-        print(f"Get IP error: {e}")
+        print(f"get_ip: {e}")
         return None
 
 
@@ -67,7 +67,7 @@ def get_username():
     try:
         return os.getlogin()
     except Exception as e:
-        print(f"Get username error: {e}")
+        print(f"get_username: {e}")
         return None
 
 

